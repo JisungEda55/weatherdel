@@ -7,100 +7,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherDul</title>
     <style>
-    .weather-widget {
-        opacity: 0;
-        transition: opacity 1.2s ease-in-out; /* opacity 전환 시간 및 타이밍 함수 */
-        display: block; /* 요소가 항상 블록 상태로 존재하도록 설정 */
-        position: absolute; /* 요소가 겹치도록 설정 */
-        width: 100%; /* 요소의 너비를 100%로 설정 */
-        height: 100%; /* 요소의 높이를 100%로 설정 */
-        top: 0;
-        left: 0;
-        background-color: transparent; /* 배경을 투명하게 설정 */
-    }
+        .weather-widget {
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out; /* opacity 전환 시간 및 타이밍 함수 */
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: transparent; /* 배경을 투명하게 설정 */
+        }
 
-    .weather-widget.active {
-        opacity: 1;
-    }
+        .weather-widget.active {
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body>
+    <!-- 서울 날씨 위젯 -->
     <div id="seoul-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >SEOUL KOREA</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">SEOUL KOREA</a>
     </div>
-    
+
+    <!-- 부산 날씨 위젯 -->
     <div id="busan-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/35d18129d08/busan/" data-label_1="BUSAN" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >BUSAN KOREA</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/35d18129d08/busan/" data-label_1="BUSAN" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">BUSAN KOREA</a>
     </div>
 
+    <!-- 도쿄 날씨 위젯 -->
     <div id="tokyo-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/35d69139d69/tokyo/" data-label_1="TOKYO" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >TOKYO KOREA</a>
-    </div>
-
-    <div id="new-york-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="USA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >NEW YORK USA</a>
-    </div>
-
-    <div id="los-angeles-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/34d05n118d24/los-angeles/" data-label_1="LOS ANGELES" data-label_2="USA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >LOS ANGELES USA</a>
-    </div>
-
-    <div id="berlin-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="GERMANY" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >BERLIN GERMANY</a>
-    </div>
-
-    <div id="paris-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/48d862d35/paris/" data-label_1="PARIS" data-label_2="FRANCE" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >PARIS FRANCE</a>
-    </div>
-
-    <div id="metropolitan-city-of-rome-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/41d9012d50/metropolitan-city-of-rome/" data-label_1="ROME" data-label_2="ITALY" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >ROMA ITALY</a>
-    </div>
-
-    <div id="metro-manila-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/14d61121d02/metro-manila/" data-label_1="MANILA" data-label_2="PILIPINAS" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >MANILA PILIPINAS</a>
-    </div>
-
-    <div id="san-francisco-widget" class="weather-widget">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/37d77n122d42/san-francisco/" data-label_1="SAN FRANCISCO" data-label_2="USA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)" >ROMA ITALY</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/35d69139d69/tokyo/" data-label_1="TOKYO" data-label_2="JAPAN" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">TOKYO JAPAN</a>
     </div>
     
+    <!-- 부산 날씨 위젯 -->
+    <div id="cupertino-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/37d32n122d03/cupertino/" data-label_1="CUPERTINO" data-label_2="USA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">CUPERTINO USA</a>
+    </div>
+
+    <!-- 뉴욕 날씨 위젯 -->
+    <div id="new-york-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="USA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">NEW YORK USA</a>
+    </div>
+
+    <!-- 로스앤젤레스 날씨 위젯 -->
+    <div id="los-angeles-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/34d05n118d24/los-angeles/" data-label_1="LOS ANGELES" data-label_2="USA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">LOS ANGELES USA</a>
+    </div>
+
+    <!-- 베를린 날씨 위젯 -->
+    <div id="berlin-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/52d5213d40/berlin/" data-label_1="BERLIN" data-label_2="GERMANY" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">BERLIN GERMANY</a>
+    </div>
+
+    <!-- 파리 날씨 위젯 -->
+    <div id="paris-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/48d862d35/paris/" data-label_1="PARIS" data-label_2="FRANCE" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">PARIS FRANCE</a>
+    </div>
+    
+    <!-- 수원 날씨 위젯 -->
+    <div id="suwon-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/37d26127d03/suwon-si/" data-label_1="SUWON" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">SUWON KOREA</a>
+    </div>
+
+    <!-- 샌프란시스코 날씨 위젯 -->
+    <div id="san-francisco-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/37d77n122d42/san-francisco/" data-label_1="SAN FRANCISCO" data-label_2="USA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure" data-basecolor="rgba(1, 1, 1, 0)" data-textcolor="rgb(28, 28, 30)" data-highcolor="rgb(255, 59, 48)" data-lowcolor="rgb(0, 122, 255)" data-suncolor="rgb(255, 149, 0)" data-mooncolor="rgb(72, 72, 74)" data-cloudcolor="rgb(99, 99, 102)" data-cloudfill="rgb(242, 242, 247)" data-raincolor="rgb(10, 122, 255)" data-snowcolor="rgb(0, 199, 190)">SAN FRANCISCO USA</a>
+    </div>
+
+    <script src="https://weatherwidget.io/js/widget.min.js"></script>
     <script>
-        // weatherwidget.io 스크립트 로드
-        !function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://weatherwidget.io/js/widget.min.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'weatherwidget-io-js');
-
-        // 날씨 위젯을 번갈아 가며 보여주는 함수
-        let currentWidget = 0;
-        const widgets = ['#seoul-widget', '#busan-widget'];
-
-        function switchWidgets() {
-            // 모든 위젯을 숨김
-            widgets.forEach(widget => {
-                const element = document.querySelector(widget);
-                element.classList.remove('active');
-            });
-
-            // 현재 위젯을 표시
-            const currentElement = document.querySelector(widgets[currentWidget]);
-            currentElement.classList.add('active');
-
-            // 다음 위젯을 가리키도록 인덱스 업데이트
-            currentWidget = (currentWidget + 1) % widgets.length;
-        }
-
-        // 초기 위젯 상태 설정 및 주기적으로 위젯 전환
         document.addEventListener('DOMContentLoaded', () => {
+            const widgets = [
+                '#seoul-widget',
+                '#busan-widget',
+                '#cupertino-widget',
+                '#tokyo-widget',
+                '#new-york-widget',
+                '#los-angeles-widget',
+                '#berlin-widget',
+                '#paris-widget',
+                '#suwon-widget',
+                '#san-francisco-widget'
+            ];
+
+            let currentWidget = 0;
+
+            // 위젯을 전환하는 함수
+            function switchWidgets() {
+                // 모든 위젯을 숨김
+                widgets.forEach(widget => {
+                    const element = document.querySelector(widget);
+                    element.classList.remove('active');
+                });
+
+                // 현재 위젯을 표시
+                const currentElement = document.querySelector(widgets[currentWidget]);
+                currentElement.classList.add('active');
+
+                // 다음 위젯을 가리키도록 인덱스 업데이트
+                currentWidget = (currentWidget + 1) % widgets.length;
+            }
+
+            // 초기 위젯 상태 설정 및 주기적으로 위젯 전환
             switchWidgets(); // 초기 표시
-            setInterval(switchWidgets, 8000); // 8초마다 전환
+            setInterval(switchWidgets, 8000); // 8초마다 위젯 전환
 
             // 매 초마다 현재 시간을 확인
             setInterval(() => {
@@ -109,12 +121,10 @@
                 const seconds = now.getSeconds();
 
                 // 매 시간 30분이 되면 페이지를 새로고침
-                if (minutes === 30 && seconds === 0) {
+                if (minutes === 30 && seconds <= 1) {
                     // 마지막 위젯을 표시한 후 페이지 새로고침
-                    document.querySelector('#san-francisco-widget').classList.add('active');
-                    currentWidget = widgets.length - 1; // 마지막 위젯을 가리킴
-                    
-                    // 1초 후에 페이지를 새로고침 (위젯 전환을 자연스럽게 처리)
+                    const lastWidgetElement = document.querySelector(widgets[widgets.length - 1]);
+                    lastWidgetElement.classList.add('active');
                     setTimeout(() => {
                         window.location.reload();
                     }, 1000);
