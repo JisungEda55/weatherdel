@@ -7,21 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherDul</title>
     <style>
-        .weather-widget {
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out; /* opacity 전환 시간 및 타이밍 함수 */
-            display: block; /* 요소가 항상 블록 상태로 존재하도록 설정 */
-            position: absolute; /* 요소가 겹치도록 설정 */
-            width: 100%; /* 요소의 너비를 100%로 설정 */
-            height: 100%; /* 요소의 높이를 100%로 설정 */
-            top: 0;
-            left: 0;
-        }
+    .weather-widget {
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out; /* opacity 전환 시간 및 타이밍 함수 */
+        display: block; /* 요소가 항상 블록 상태로 존재하도록 설정 */
+        position: absolute; /* 요소가 겹치도록 설정 */
+        width: 100%; /* 요소의 너비를 100%로 설정 */
+        height: 100%; /* 요소의 높이를 100%로 설정 */
+        top: 0;
+        left: 0;
+        background-color: transparent; /* 배경을 투명하게 설정 */
+    }
 
-        .weather-widget.active {
-            opacity: 1;
-        }
-    </style>
+    .weather-widget.active {
+        opacity: 1;
+    }
+</style>
+
 </head>
 
 <body>
