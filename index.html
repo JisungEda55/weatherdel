@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherDul</title>
+    <style>
+        .weather-widget {
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out; /* opacity 전환 시간 및 타이밍 함수 */
+            display: block; /* 요소가 항상 블록 상태로 존재하도록 설정 */
+            position: absolute; /* 요소가 겹치도록 설정 */
+            width: 100%; /* 요소의 너비를 100%로 설정 */
+            height: 100%; /* 요소의 높이를 100%로 설정 */
+            top: 0;
+            left: 0;
+        }
+
+        .weather-widget.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 서울 날씨 위젯 -->
+    <div id="seoul-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/37d57126d98/seoul/" data-label_1="SEOUL" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure">SEOUL KOREA</a>
+    </div>
+
+    <!-- 부산 날씨 위젯 -->
+    <div id="busan-widget" class="weather-widget">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/35d18129d08/busan/" data-label_1="BUSAN" data-label_2="KOREA" data-font="Arial Black" data-icons="Climacons Animated" data-days="3" data-theme="pure">BUSAN KOREA</a>
+    </div>
+
+    <script>
+        // weatherwidget.io 스크립트 로드
+        !function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://weatherwidget.io/js/widget.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+
+        // 날씨 위젯을 번갈아 가며 보여주는 함수
+        let currentWidget = 0;
+        const widgets = ['#seoul-widget', '#busan-widget'];
+
+        function switchWidgets() {
+            // 모든 위젯을 숨김
+            widgets.forEach(widget => {
+                const element = document.querySelector(widget);
+                element.classList.remove('active');
+            });
+
+            // 현재 위젯을 표시
+            const currentElement = document.querySelector(widgets[currentWidget]);
+            currentElement.classList.add('active');
+
+            // 다음 위젯을 가리키도록 인덱스 업데이트
+            currentWidget = (currentWidget + 1) % widgets.length;
+        }
+
+        // 초기 위젯 상태 설정 및 주기적으로 위젯 전환
+        document.addEventListener('DOMContentLoaded', () => {
+            switchWidgets(); // 초기 표시
+            setInterval(switchWidgets, 8000); // 8초마다 전환
+
+            // 매 초마다 현재 시간을 확인
+            setInterval(() => {
+                const now = new Date();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+
+                // 매 시간 30분이 되면 페이지를 새로고침
+                if (minutes === 30 && seconds === 0) {
+                    // 마지막 위젯을 표시한 후 페이지 새로고침
+                    document.querySelector('#busan-widget').classList.add('active');
+                    currentWidget = widgets.length - 1; // 마지막 위젯을 가리킴
+                    
+                    // 1초 후에 페이지를 새로고침 (위젯 전환을 자연스럽게 처리)
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
